@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>S&amp;P 500 Large Gainers Today</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="shell">
+      <section class="hero" aria-labelledby="page-title">
+        <div>
+          <p class="eyebrow">Live market scanner</p>
+          <h1 id="page-title">S&amp;P 500 stocks with large gains today</h1>
+          <p class="lede">
+            Find S&amp;P 500 constituents whose regular-market move is above your chosen gain threshold.
+          </p>
+        </div>
+        <div class="hero-card" aria-label="Default scanner settings">
+          <span class="metric-label">Large gain threshold</span>
+          <strong id="threshold-readout">3.0%</strong>
+          <span class="metric-label">Refreshes every 60 seconds</span>
+        </div>
+      </section>
+
+      <section class="controls" aria-label="Scanner controls">
+        <label for="threshold">Minimum gain</label>
+        <input id="threshold" type="range" min="0" max="15" step="0.5" value="3">
+        <button id="refresh" type="button">Refresh now</button>
+      </section>
+
+      <section class="status-panel" aria-live="polite">
+        <div>
+          <span class="status-label">Status</span>
+          <strong id="status">Loading current market data…</strong>
+        </div>
+        <div>
+          <span class="status-label">Data as of</span>
+          <strong id="as-of">—</strong>
+        </div>
+      </section>
+
+      <section class="table-card" aria-labelledby="results-title">
+        <div class="table-header">
+          <div>
+            <p class="eyebrow">Results</p>
+            <h2 id="results-title">Large gainers</h2>
+          </div>
+          <span id="result-count" class="pill">0 stocks</span>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">Symbol</th>
+                <th scope="col">Company</th>
+                <th scope="col">Price</th>
+                <th scope="col">Change</th>
+                <th scope="col">Gain</th>
+                <th scope="col">Volume</th>
+              </tr>
+            </thead>
+            <tbody id="gainers-body">
+              <tr>
+                <td colspan="6" class="empty">Loading S&amp;P 500 gainers…</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <p class="fine-print">
+        Data is delayed or unavailable depending on the upstream quote provider. This website is informational only and is not financial advice.
+      </p>
+    </main>
+
+    <script src="app.js" defer></script>
+  </body>
+</html>
